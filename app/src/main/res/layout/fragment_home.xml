@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Header Section with Title and Settings Icon -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <!-- Title Text -->
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="50dp" />
+
+        <!-- Settings Icon -->
+        <ImageView
+            android:id="@+id/ivSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/settings"
+            android:contentDescription="Settings"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true" />
+    </RelativeLayout>
+
+    <!-- Search Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+        <EditText
+            android:id="@+id/etInput"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:hint="Search"
+            android:padding="12dp"
+            android:layout_weight="1" />
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Search"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <!-- Group Activities Section -->
+    <LinearLayout
+        android:id="@+id/groupActivitiesSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#f0f0f0"
+        android:layout_marginTop="16dp">
+
+        <!-- Group Activities Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Latest Group Activities"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Group Name -->
+        <TextView
+            android:id="@+id/groupName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Group Name"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Post Name -->
+        <TextView
+            android:id="@+id/postName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Post Name"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+
+    <!-- Movie Recommendations Section -->
+    <LinearLayout
+        android:id="@+id/movieRecommendationsSection"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Movie Recommendations Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Movie Recommendations"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Horizontal Layout for Movie Images -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Movie Image Boxes -->
+            <ImageView
+                android:id="@+id/movieImage1"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:src="@drawable/movie" />
+
+            <ImageView
+                android:id="@+id/movieImage2"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:src="@drawable/movie" />
+
+            <ImageView
+                android:id="@+id/movieImage3"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:src="@drawable/movie" />
+        </LinearLayout>
+    </LinearLayout>
+    <!-- BOOK Recommendations Section -->
+    <LinearLayout
+        android:id="@+id/bookRecommendationsSection"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Movie Recommendations Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Book Recommendations"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Horizontal Layout for Movie Images -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Movie Image Boxes -->
+            <ImageView
+                android:id="@+id/bookImage1"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:src="@drawable/movie" />
+
+            <ImageView
+                android:id="@+id/bookImage2"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:src="@drawable/movie" />
+
+            <ImageView
+                android:id="@+id/bookImage3"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:src="@drawable/movie" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "88749552726",
+    "project_id": "pearls-722b9",
+    "storage_bucket": "pearls-722b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88749552726:android:e5e765a9eb285a879877f7",
+        "android_client_info": {
+          "package_name": "com.concious.pearls"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwhQ0Wx5XqfHGlQy9Azq79b48uifSSMJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88749552726:android:f802d82d9bd870379877f7",
+        "android_client_info": {
+          "package_name": "com.example.pearls"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwhQ0Wx5XqfHGlQy9Azq79b48uifSSMJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

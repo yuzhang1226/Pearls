@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_home">
+
+    <!-- Home Fragment -->
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.pearls.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+
+        <!-- Action to Group Details from Home -->
+        <action
+            android:id="@+id/action_home_to_group_details"
+            app:destination="@id/navigation_groupDetailsFragment" />
+
+        <!-- Action to Movies and Books -->
+        <action
+            android:id="@+id/action_home_to_movies_and_books"
+            app:destination="@id/navigation_movies_and_books" />
+    </fragment>
+
+    <!-- Movies and Books Fragment -->
+    <fragment
+        android:id="@+id/navigation_movies_and_books"
+        android:name="com.example.pearls.ui.movies_and_books.MoviesAndBooksFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_movies_and_books" />
+
+    <!-- Groups Fragment -->
+    <fragment
+        android:id="@+id/navigation_groups"
+        android:name="com.example.pearls.ui.groups.GroupsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_groups">
+
+        <!-- Action to Group Detail from Groups -->
+        <action
+            android:id="@+id/action_groups_to_groupDetailsFragment"
+            app:destination="@id/navigation_groupDetailsFragment" />
+    </fragment>
+
+    <!-- Group Details Fragment -->
+    <fragment
+        android:id="@+id/navigation_groupDetailsFragment"
+        android:name="com.example.pearls.ui.groups.GroupDetailFragment"
+        android:label="Group Details"
+        tools:layout="@layout/fragment_groups_details" />
+
+    <!-- Profile Fragment -->
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.pearls.ui.profile.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
+
+</navigation>

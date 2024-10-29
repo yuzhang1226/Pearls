@@ -1,0 +1,83 @@
+<resources>
+    <string name="app_name">Pearls</string>
+    <string name="email_hint">Enter email</string>
+
+    <string name="password_hint">Password</string>
+    <string name="signup_button_text">Sign Up</string>
+    <string name="already_have_account">Already have an account? Log in</string>
+    <string name="my_preference_name_hint">My Preference Name</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="login_button_text">Login</string>
+    <string name="signup_text">Don\'t have an account? Sign up</string>
+    <string name="remember_me_text">Remember Me</string>
+    <string name="forgot_password_text">Forgot Password?</string>
+    <string name="welcome_message">Main page</string>
+    <string name="search_hint">search</string>
+    <string name="search_button">search</string>
+    <string name="settings_icon_description">Settings</string>
+    <string name="notification_icon_desc">Notification</string>
+
+    <string name="movie_recommendations_title">Movie Recommendations</string>
+    <!-- Movie Image Descriptions -->
+    <string name="movie_image_1_desc">Movie 1 Description</string>
+    <string name="movie_image_2_desc">Movie 2 Description</string>
+    <string name="movie_image_3_desc">Movie 3 Description</string>
+    <string name="movie_image_4_desc">Movie 4 Description</string>
+    <string name="post_content">post content....Lorem Ipsum is simply dummy
+        text of the printing and typesetting industry...  </string>
+    <string name="group_activities_title">Group Activities</string>
+    <!-- Activity names -->
+    <string name="group_name">group1</string>
+    <string name="activity_name">new movies released</string>
+
+    <!-- Activity responses -->
+    <string name="activity_responses">20 responses</string>
+    <string name="count">yesterday</string>
+
+
+    <string name="groups_heading">Groups</string>
+    <string name="search_groups">Search for groups...</string>
+    <string name="search_button_text">Search</string>
+    <string name="groups_recommendations">Recommended Groups</string>
+    <string name="my_groups_heading">My Groups</string>
+    <string name="add_button_text">Add</string>
+    <string name="group_one">group1</string>
+    <string name="group_two">group2</string>
+    <string name="group_three">group3</string>
+    <string name="group_four">group4</string>
+    <string name="group_five">group5</string>
+    <string name="group_six">group6</string>
+
+
+    <!-- Movie Titles -->
+    <string name="movie_one_title">movie1</string>
+    <string name="movie_two_title">movie2</string>
+    <string name="movie_three_title">movie3</string>
+    <string name="movie_four_title">movie4</string>
+    <string name="movie_five_title">movie5</string>
+    <string name="movie_six_title">movie6</string>
+
+    <string name="movies_books_heading">Movies/Books</string>
+    <string name="recommended_movies">Movie Recommendations</string>
+
+    <string name="recommended_books">Book Recommendations</string>
+
+
+    <!-- Movie Description -->
+    <string name="movie_description">Explore our collection of movies</string>
+    <string name="movie_poster_desc">A poster for the movie Inception</string>
+    <!-- Book Titles -->
+    <string name="book_one_title">Design</string>
+    <string name="book_two_title">Design</string>
+    <string name="book_three_title">Design</string>
+    <string name="book_four_title">Design</string>
+    <string name="book_five_title">Design</string>
+    <string name="book_six_title">Design</string>
+
+
+    <string name="movie_desc">movie</string>
+    <!-- Book Description -->
+    <string name="book_description">Explore our collection of books</string>
+    <string name="book_cover_desc">Cover of Book</string>
+
+</resources>
