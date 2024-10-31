@@ -91,5 +91,6 @@
     <!-- Book Description -->
     <string name="book_description">Explore our collection of books</string>
     <string name="book_cover_desc">Cover of Book</string>
+    <string name="edit_introduction">Edit Introduction</string>
 
 </resources>
