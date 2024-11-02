@@ -93,4 +93,6 @@
     <string name="book_cover_desc">Cover of Book</string>
     <string name="edit_introduction">Edit Introduction</string>
 
+    <string name="upload_picture_button_desc">Upload Picture</string>
+    <string name="upload_picture">+</string>
 </resources>

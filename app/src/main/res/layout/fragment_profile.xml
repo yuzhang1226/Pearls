@@ -17,7 +17,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center">
 
-            <!-- Profile Picture -->
             <ImageView
                 android:id="@+id/profile_picture"
                 android:layout_width="100dp"
@@ -25,22 +24,21 @@
                 android:src="@drawable/profile_picture"
                 android:background="@drawable/circle_shape"
                 android:scaleType="centerCrop"
-                android:layout_centerInParent="true" />
+                android:layout_centerInParent="true"/>
 
-            <!-- Button to Upload Picture (Camera Icon) -->
-            <ImageButton
+            <Button
                 android:id="@+id/upload_picture_button"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/camera"
-                android:background="@android:color/transparent"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:layout_margin="4dp"
-                android:layout_centerInParent="true" />
+                android:layout_alignEnd="@id/profile_picture"
+                android:layout_alignBottom="@id/profile_picture"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/custom_button_bg"
+                android:text="@string/upload_picture"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
         </RelativeLayout>
-
-
         <!-- User Name -->
         <TextView
             android:id="@+id/user_name"
@@ -78,6 +76,24 @@
                 android:layout_marginStart="8dp"
                 android:text="This is my introduction."
                 android:textSize="16sp" />
+            <!-- EditText for Introduction -->
+            <EditText
+                android:id="@+id/introduction_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Edit your introduction here"
+                android:visibility="gone"
+            android:inputType="textMultiLine"
+            android:layout_marginTop="8dp"/>
+
+            <!-- Save Button -->
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:visibility="gone"
+                android:layout_marginStart="8dp" />
         </LinearLayout>
 
         <!-- My List Section -->

@@ -55,6 +55,32 @@
         android:id="@+id/navigation_profile"
         android:name="com.example.pearls.ui.profile.ProfileFragment"
         android:label="@string/profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+
+        <!-- Action to Watched List from Profile -->
+        <action
+            android:id="@+id/action_profile_to_watched_list"
+            app:destination="@id/navigation_watched_list" />
+
+        <!-- Action to Wish to Watch from Profile -->
+        <action
+            android:id="@+id/action_profile_to_wish_to_watch"
+            app:destination="@id/navigation_wish_to_watch" />
+
+    </fragment>
+
+    <!-- Watched List Fragment -->
+    <fragment
+        android:id="@+id/navigation_watched_list"
+        android:name="com.example.pearls.ui.watched_list.WatchedListFragment"
+        android:label="Watched List"
+        tools:layout="@layout/fragment_watched_list" />
+
+    <!-- Wish to Watch Fragment -->
+    <fragment
+        android:id="@+id/navigation_wish_to_watch"
+        android:name="com.example.pearls.ui.wish_to_watch.WishToWatchFragment"
+        android:label="Wish to Watch"
+        tools:layout="@layout/fragment_wish_to_watch" />
 
 </navigation>
