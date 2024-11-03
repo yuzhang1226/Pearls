@@ -147,11 +147,13 @@
                             android:orientation="horizontal">
 
                             <ImageView
+                                android:id="@+id/movie1_image"
                                 android:layout_width="80dp"
                                 android:layout_height="120dp"
                                 android:layout_marginEnd="8dp"
                                 android:src="@drawable/movie" />
                             <ImageView
+                                android:id="@+id/movie2_image"
                                 android:layout_width="80dp"
                                 android:layout_height="120dp"
                                 android:layout_marginEnd="8dp"
@@ -195,11 +197,13 @@
                             android:orientation="horizontal">
 
                             <ImageView
+                                android:id="@+id/movie3_image"
                                 android:layout_width="80dp"
                                 android:layout_height="120dp"
                                 android:layout_marginEnd="8dp"
                                 android:src="@drawable/movie" />
                             <ImageView
+                                android:id="@+id/movie4_image"
                                 android:layout_width="80dp"
                                 android:layout_height="120dp"
                                 android:layout_marginEnd="8dp"
@@ -229,6 +233,7 @@
             android:layout_marginTop="16dp">
 
             <ImageView
+                android:id="@+id/group1_image"
                 android:layout_width="0dp"
                 android:layout_height="120dp"
                 android:layout_marginEnd="8dp"
@@ -237,6 +242,7 @@
                 android:src="@drawable/movie" />
 
             <ImageView
+                android:id="@+id/group2_image"
                 android:layout_width="0dp"
                 android:layout_height="120dp"
                 android:layout_marginEnd="8dp"
@@ -245,6 +251,7 @@
                 android:src="@drawable/movie" />
 
             <ImageView
+                android:id="@+id/group3_image"
                 android:layout_width="0dp"
                 android:layout_height="120dp"
                 android:layout_marginEnd="8dp"
@@ -253,6 +260,7 @@
                 android:src="@drawable/movie" />
 
             <ImageView
+                android:id="@+id/group4_image"
                 android:layout_width="0dp"
                 android:layout_height="120dp"
                 android:layout_marginEnd="8dp"
@@ -262,6 +270,7 @@
 
             <!-- Second Row of Images -->
             <ImageView
+                android:id="@+id/group5_image"
                 android:layout_width="0dp"
                 android:layout_height="120dp"
                 android:layout_marginEnd="8dp"
@@ -270,6 +279,7 @@
                 android:src="@drawable/movie" />
 
             <ImageView
+                android:id="@+id/group6_image"
                 android:layout_width="0dp"
                 android:layout_height="120dp"
                 android:layout_marginEnd="8dp"
@@ -278,6 +288,7 @@
                 android:src="@drawable/movie" />
 
             <ImageView
+                android:id="@+id/group7_image"
                 android:layout_width="0dp"
                 android:layout_height="120dp"
                 android:layout_marginEnd="8dp"
@@ -286,6 +297,7 @@
                 android:src="@drawable/movie" />
 
             <ImageView
+                android:id="@+id/group8_image"
                 android:layout_width="0dp"
                 android:layout_height="120dp"
                 android:layout_marginEnd="8dp"

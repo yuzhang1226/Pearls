@@ -28,7 +28,10 @@
         android:id="@+id/navigation_movies_and_books"
         android:name="com.example.pearls.ui.movies_and_books.MoviesAndBooksFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_movies_and_books" />
+        tools:layout="@layout/fragment_movies_and_books" >
+
+
+    </fragment>
 
     <!-- Groups Fragment -->
     <fragment
@@ -66,6 +69,15 @@
         <action
             android:id="@+id/action_profile_to_wish_to_watch"
             app:destination="@id/navigation_wish_to_watch" />
+
+        <action
+            android:id="@+id/action_profile_to_movies_and_books"
+            app:destination="@id/navigation_movies_and_books" />
+
+        <action
+            android:id="@+id/action_profile_to_groups"
+            app:destination="@id/navigation_groups" />
+
 
     </fragment>
 

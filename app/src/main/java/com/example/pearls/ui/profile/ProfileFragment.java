@@ -109,6 +109,107 @@ public class ProfileFragment extends Fragment {
                 navController.navigate(R.id.action_profile_to_wish_to_watch);
             }
         });
+        // Set up click listeners for the watched list images
+        binding.movie1Image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(binding.getRoot());
+                navController.navigate(R.id.action_profile_to_movies_and_books);
+            }
+        });
+
+        binding.movie2Image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(binding.getRoot());
+                navController.navigate(R.id.action_profile_to_movies_and_books);
+            }
+        });
+        // listeners for wish to watch images
+        binding.movie3Image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(binding.getRoot());
+                navController.navigate(R.id.action_profile_to_movies_and_books);
+            }
+        });
+
+        binding.movie4Image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(binding.getRoot());
+                navController.navigate(R.id.action_profile_to_movies_and_books);
+            }
+        });
+        // Click listener for "My Groups" title
+        binding.myGroupsTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(binding.getRoot());
+                navController.navigate(R.id.action_profile_to_groups);
+            }
+        });
+        // Click listener for group images
+        binding.group1Image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(binding.getRoot());
+                navController.navigate(R.id.action_profile_to_groups);
+            }
+        });
+
+        binding.group2Image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(binding.getRoot());
+                navController.navigate(R.id.action_profile_to_groups);
+            }
+        });
+
+        binding.group3Image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(binding.getRoot());
+                navController.navigate(R.id.action_profile_to_groups);
+            }
+        });
+
+        binding.group4Image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(binding.getRoot());
+                navController.navigate(R.id.action_profile_to_groups);
+            }
+        });
+        binding.group5Image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(binding.getRoot());
+                navController.navigate(R.id.action_profile_to_groups);
+            }
+        });
+        binding.group6Image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(binding.getRoot());
+                navController.navigate(R.id.action_profile_to_groups);
+            }
+        });
+        binding.group7Image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(binding.getRoot());
+                navController.navigate(R.id.action_profile_to_groups);
+            }
+        });
+        binding.group8Image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = Navigation.findNavController(binding.getRoot());
+                navController.navigate(R.id.action_profile_to_groups);
+            }
+        });
+
         // Set up the edit button functionality
         binding.editPen.setOnClickListener(new View.OnClickListener() {
             @Override
