@@ -16,12 +16,12 @@ import com.example.pearls.R;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 public class GroupsFragment extends Fragment {
 
     private FragmentGroupsBinding binding;
     private FirebaseFirestore db;
+    private String currentUserId; // Add currentUserId field
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ public class GroupsFragment extends Fragment {
         View root = binding.getRoot();
 
         db = FirebaseFirestore.getInstance();
+        currentUserId = "currentUserId"; // Replace with actual user ID retrieval
 
         // Setup search functionality
         binding.btnSearch.setOnClickListener(v -> {
@@ -38,6 +39,11 @@ public class GroupsFragment extends Fragment {
             } else {
                 Toast.makeText(getContext(), "Please enter a group name", Toast.LENGTH_SHORT).show();
             }
+        });
+
+        // Button to navigate to Create Group
+        binding.btnCreateGroup.setOnClickListener(v -> {
+            Navigation.findNavController(root).navigate(R.id.navigation_create_group);
         });
 
         // Load hot group discussions
@@ -55,20 +61,17 @@ public class GroupsFragment extends Fragment {
     // Search Firestore for groups by name
     private void searchGroup(String queryText) {
         db.collection("groups")
-                .whereEqualTo("groupName", queryText)
+                .whereEqualTo("group_name", queryText)
                 .get()
                 .addOnCompleteListener(task -> {
-                    if (task.isSuccessful() && !task.getResult().isEmpty()) {
-                        for (DocumentSnapshot document : task.getResult()) {
-                            // Navigate to the group detail page with the group's data
-                            Bundle bundle = new Bundle();
-                            bundle.putString("groupId", document.getId());
-                            Navigation.findNavController(binding.getRoot()).navigate(R.id.navigation_groupDetailsFragment, bundle);
-                        }
+                    if (task.isSuccessful() && task.getResult() != null && !task.getResult().isEmpty()) {
+                        DocumentSnapshot document = task.getResult().getDocuments().get(0); // Navigate to first found group
+                        navigateToGroupDetail(document.getId());
                     } else {
                         Toast.makeText(getContext(), "No group found", Toast.LENGTH_SHORT).show();
                     }
-                });
+                })
+                .addOnFailureListener(e -> Toast.makeText(getContext(), "Error searching groups: " + e.getMessage(), Toast.LENGTH_SHORT).show());
     }
 
     // Load the hottest group discussions
@@ -79,59 +82,68 @@ public class GroupsFragment extends Fragment {
                 .limit(1)
                 .get()
                 .addOnCompleteListener(task -> {
-                    if (task.isSuccessful() && !task.getResult().isEmpty()) {
-                        for (DocumentSnapshot document : task.getResult()) {
-                            binding.groupName.setText(document.getString("groupName"));
-                            binding.postName.setText(document.getString("postTitle"));
+                    if (task.isSuccessful() && task.getResult() != null && !task.getResult().isEmpty()) {
+                        DocumentSnapshot document = task.getResult().getDocuments().get(0);
+                        binding.groupName.setText(document.getString("groupName"));
+                        binding.postName.setText(document.getString("postTitle"));
 
-                            // Click listener for group name
-                            binding.groupName.setOnClickListener(v -> navigateToGroupDetail(document.getId()));
-
-                            // Click listener for post name
-                            binding.postName.setOnClickListener(v -> navigateToGroupDetail(document.getId()));
-                        }
+                        // Click listener for group name and post name
+                        View.OnClickListener listener = v -> navigateToGroupDetail(document.getId());
+                        binding.groupName.setOnClickListener(listener);
+                        binding.postName.setOnClickListener(listener);
                     }
-                });
+                })
+                .addOnFailureListener(e -> Toast.makeText(getContext(), "Error loading hottest group: " + e.getMessage(), Toast.LENGTH_SHORT).show());
     }
 
     // Load recommended groups randomly from Firestore
     private void loadRecommendedGroups() {
         db.collection("groups").get().addOnCompleteListener(task -> {
-            if (task.isSuccessful() && !task.getResult().isEmpty()) {
-                // Randomly select groups
+            if (task.isSuccessful() && task.getResult() != null && !task.getResult().isEmpty()) {
                 int groupCounter = 1;
-
                 for (DocumentSnapshot document : task.getResult()) {
-                    if (groupCounter == 1) {
-                        binding.btnViewGroup1.setText(document.getString("groupName"));
-                        binding.btnViewGroup1.setOnClickListener(v -> joinGroup(document.getId()));
-                    } else if (groupCounter == 2) {
-                        binding.btnViewGroup2.setText(document.getString("groupName"));
-                        binding.btnViewGroup2.setOnClickListener(v -> joinGroup(document.getId()));
-                    } else if (groupCounter == 3) {
-                        binding.btnViewGroup3.setText(document.getString("groupName"));
-                        binding.btnViewGroup3.setOnClickListener(v -> joinGroup(document.getId()));
-                    } else if (groupCounter == 4) {
-                        binding.btnViewGroup4.setText(document.getString("groupName"));
-                        binding.btnViewGroup4.setOnClickListener(v -> joinGroup(document.getId()));
-                    } else if (groupCounter == 5) {
-                        binding.btnViewGroup5.setText(document.getString("groupName"));
-                        binding.btnViewGroup5.setOnClickListener(v -> joinGroup(document.getId()));
-                    } else if (groupCounter == 6) {
-                        binding.btnViewGroup6.setText(document.getString("groupName"));
-                        binding.btnViewGroup6.setOnClickListener(v -> joinGroup(document.getId()));
+                    if (groupCounter <= 6) { // Limit to 6 groups
+                        setRecommendedGroupButton(groupCounter, document);
+                        groupCounter++;
                     }
-                    groupCounter++;
-                    if (groupCounter > 6) break; // Only showing 6 groups
                 }
             }
-        });
+        }).addOnFailureListener(e -> Toast.makeText(getContext(), "Error loading recommended groups: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+    }
+
+    private void setRecommendedGroupButton(int index, DocumentSnapshot document) {
+        switch (index) {
+            case 1:
+                binding.btnViewGroup1.setText(document.getString("groupName"));
+                binding.btnViewGroup1.setOnClickListener(v -> joinGroup(document.getId()));
+                break;
+            case 2:
+                binding.btnViewGroup2.setText(document.getString("groupName"));
+                binding.btnViewGroup2.setOnClickListener(v -> joinGroup(document.getId()));
+                break;
+            case 3:
+                binding.btnViewGroup3.setText(document.getString("groupName"));
+                binding.btnViewGroup3.setOnClickListener(v -> joinGroup(document.getId()));
+                break;
+            case 4:
+                binding.btnViewGroup4.setText(document.getString("groupName"));
+                binding.btnViewGroup4.setOnClickListener(v -> joinGroup(document.getId()));
+                break;
+            case 5:
+                binding.btnViewGroup5.setText(document.getString("groupName"));
+                binding.btnViewGroup5.setOnClickListener(v -> joinGroup(document.getId()));
+                break;
+            case 6:
+                binding.btnViewGroup6.setText(document.getString("groupName"));
+                binding.btnViewGroup6.setOnClickListener(v -> joinGroup(document.getId()));
+                break;
+        }
     }
 
     // Join a group and display a congratulatory message
     private void joinGroup(String groupId) {
         Map<String, Object> member = new HashMap<>();
-        member.put("userId", "currentUserId"); // Replace with the real user ID
+        member.put("userId", currentUserId); // Use actual user ID
         db.collection("groups").document(groupId).collection("members")
                 .add(member)
                 .addOnSuccessListener(documentReference -> {
@@ -139,42 +151,53 @@ public class GroupsFragment extends Fragment {
                     navigateToGroupDetail(groupId);
                 })
                 .addOnFailureListener(e -> {
-                    Toast.makeText(getContext(), "Error joining group.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Error joining group: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
     }
 
     // Load groups related to the current user
     private void loadMyGroups() {
-        String currentUserId = "currentUserId"; // Replace with real user ID
         db.collection("groups").whereArrayContains("members", currentUserId).get().addOnCompleteListener(task -> {
-            if (task.isSuccessful() && !task.getResult().isEmpty()) {
+            if (task.isSuccessful() && task.getResult() != null && !task.getResult().isEmpty()) {
                 int groupCounter = 1;
 
                 for (DocumentSnapshot document : task.getResult()) {
-                    if (groupCounter == 1) {
-                        binding.btnMyGroup1.setText(document.getString("groupName"));
-                        binding.btnMyGroup1.setOnClickListener(v -> navigateToGroupDetail(document.getId()));
-                    } else if (groupCounter == 2) {
-                        binding.btnMyGroup2.setText(document.getString("groupName"));
-                        binding.btnMyGroup2.setOnClickListener(v -> navigateToGroupDetail(document.getId()));
-                    } else if (groupCounter == 3) {
-                        binding.btnMyGroup3.setText(document.getString("groupName"));
-                        binding.btnMyGroup3.setOnClickListener(v -> navigateToGroupDetail(document.getId()));
-                    } else if (groupCounter == 4) {
-                        binding.btnMyGroup4.setText(document.getString("groupName"));
-                        binding.btnMyGroup4.setOnClickListener(v -> navigateToGroupDetail(document.getId()));
-                    } else if (groupCounter == 5) {
-                        binding.btnMyGroup5.setText(document.getString("groupName"));
-                        binding.btnMyGroup5.setOnClickListener(v -> navigateToGroupDetail(document.getId()));
-                    } else if (groupCounter == 6) {
-                        binding.btnMyGroup6.setText(document.getString("groupName"));
-                        binding.btnMyGroup6.setOnClickListener(v -> navigateToGroupDetail(document.getId()));
+                    if (groupCounter <= 6) { // Limit to 6 groups
+                        setMyGroupButton(groupCounter, document);
+                        groupCounter++;
                     }
-                    groupCounter++;
-                    if (groupCounter > 6) break; // Only showing 6 groups
                 }
             }
-        });
+        }).addOnFailureListener(e -> Toast.makeText(getContext(), "Error loading my groups: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+    }
+
+    private void setMyGroupButton(int index, DocumentSnapshot document) {
+        switch (index) {
+            case 1:
+                binding.btnMyGroup1.setText(document.getString("groupName"));
+                binding.btnMyGroup1.setOnClickListener(v -> navigateToGroupDetail(document.getId()));
+                break;
+            case 2:
+                binding.btnMyGroup2.setText(document.getString("groupName"));
+                binding.btnMyGroup2.setOnClickListener(v -> navigateToGroupDetail(document.getId()));
+                break;
+            case 3:
+                binding.btnMyGroup3.setText(document.getString("groupName"));
+                binding.btnMyGroup3.setOnClickListener(v -> navigateToGroupDetail(document.getId()));
+                break;
+            case 4:
+                binding.btnMyGroup4.setText(document.getString("groupName"));
+                binding.btnMyGroup4.setOnClickListener(v -> navigateToGroupDetail(document.getId()));
+                break;
+            case 5:
+                binding.btnMyGroup5.setText(document.getString("groupName"));
+                binding.btnMyGroup5.setOnClickListener(v -> navigateToGroupDetail(document.getId()));
+                break;
+            case 6:
+                binding.btnMyGroup6.setText(document.getString("groupName"));
+                binding.btnMyGroup6.setOnClickListener(v -> navigateToGroupDetail(document.getId()));
+                break;
+        }
     }
 
     // Navigate to the group detail page

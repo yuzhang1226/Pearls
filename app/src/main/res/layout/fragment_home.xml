@@ -127,19 +127,19 @@
                 android:id="@+id/movieImage1"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
-                android:src="@drawable/movie" />
+                android:src="@drawable/matrix" />
 
             <ImageView
                 android:id="@+id/movieImage2"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
-                android:src="@drawable/movie" />
+                android:src="@drawable/godfather" />
 
             <ImageView
                 android:id="@+id/movieImage3"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
-                android:src="@drawable/movie" />
+                android:src="@drawable/interstellar" />
         </LinearLayout>
     </LinearLayout>
     <!-- BOOK Recommendations Section -->

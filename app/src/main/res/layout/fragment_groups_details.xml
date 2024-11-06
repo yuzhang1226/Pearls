@@ -38,4 +38,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp" />
+
+    <!-- "+" icon to add a post -->
+    <ImageView
+        android:id="@+id/addPostIcon"
+        android:layout_width="22dp"
+        android:layout_height="104dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="16dp"
+        android:contentDescription="Add Post"
+        android:src="@drawable/plus" />
 </LinearLayout>

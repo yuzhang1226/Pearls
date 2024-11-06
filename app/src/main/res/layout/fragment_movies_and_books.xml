@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.movies_and_books.MoviesAndBooksFragment">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -48,7 +48,6 @@
                     android:text="@string/search_button_text" />
             </LinearLayout>
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -65,6 +64,7 @@
                 android:columnCount="3"
                 android:paddingBottom="16dp">
 
+                <!-- Movie Items -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:contentDescription="@string/movie_desc"
-                        android:src="@drawable/movie" />
+                        android:src="@drawable/matrix" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -94,9 +94,11 @@
                         android:id="@+id/btnMovie1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/add_button_text"
+                        android:text="@string/add_to_wishlist"
                         android:textSize="14sp" />
                 </LinearLayout>
+
+                <!-- Repeat the above LinearLayout for other movies (2 to 6) with updated IDs -->
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -113,7 +115,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:contentDescription="@string/movie_desc"
-                        android:src="@drawable/movie" />
+                        android:src="@drawable/interstellar" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -127,7 +129,7 @@
                         android:id="@+id/btnMovie2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/add_button_text"
+                        android:text="@string/add_to_wishlist"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -146,7 +148,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:contentDescription="@string/movie_desc"
-                        android:src="@drawable/movie" />
+                        android:src="@drawable/godfather" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -160,7 +162,7 @@
                         android:id="@+id/btnMovie3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/add_button_text"
+                        android:text="@string/add_to_wishlist"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -184,7 +186,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/movie_four_title"
+                        android:text="@string/movie_two_title"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -193,10 +195,10 @@
                         android:id="@+id/btnMovie4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/add_button_text"
+                        android:text="@string/add_to_wishlist"
                         android:textSize="14sp" />
                 </LinearLayout>
-
+                <!-- Continue this for movie 3, 4, 5, 6 with appropriate IDs -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -217,7 +219,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/movie_five_title"
+                        android:text="@string/movie_two_title"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -226,7 +228,7 @@
                         android:id="@+id/btnMovie5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/add_button_text"
+                        android:text="@string/add_to_wishlist"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -250,7 +252,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/movie_six_title"
+                        android:text="@string/movie_two_title"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -259,10 +261,9 @@
                         android:id="@+id/btnMovie6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/add_button_text"
+                        android:text="@string/add_to_wishlist"
                         android:textSize="14sp" />
                 </LinearLayout>
-
             </GridLayout>
 
             <TextView
@@ -281,6 +282,7 @@
                 android:columnCount="3"
                 android:paddingBottom="16dp">
 
+                <!-- Book Items -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -310,9 +312,13 @@
                         android:id="@+id/btnBook1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/add_button_text"
+                        android:text="@string/add_to_wishlist"
                         android:textSize="14sp" />
                 </LinearLayout>
+
+
+
+                <!-- Repeat the above LinearLayout for other books (2 to 6) with updated IDs -->
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -343,108 +349,11 @@
                         android:id="@+id/btnBook2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/add_button_text"
+                        android:text="@string/add_to_wishlist"
                         android:textSize="14sp" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="8dp"
-                    android:background="@drawable/group_item_background"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <ImageView
-                        android:id="@+id/bookImage3"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:contentDescription="@string/book_cover_desc"
-                        android:src="@drawable/book" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/book_three_title"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <Button
-                        android:id="@+id/btnBook3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/add_button_text"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="8dp"
-                    android:background="@drawable/group_item_background"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <ImageView
-                        android:id="@+id/bookImage4"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:contentDescription="@string/book_cover_desc"
-                        android:src="@drawable/book" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/book_four_title"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <Button
-                        android:id="@+id/btnBook4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/add_button_text"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="8dp"
-                    android:background="@drawable/group_item_background"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <ImageView
-                        android:id="@+id/bookImage5"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:contentDescription="@string/book_cover_desc"
-                        android:src="@drawable/book" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/book_five_title"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <Button
-                        android:id="@+id/btnBook5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/add_button_text"
-                        android:textSize="14sp" />
-                </LinearLayout>
+                <!-- Continue this for books 3, 4, 5, 6 with appropriate IDs -->
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -476,7 +385,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/add_button_text"
-                        android:textSize="14sp" />
+                    android:textSize="14sp" />
                 </LinearLayout>
 
             </GridLayout>

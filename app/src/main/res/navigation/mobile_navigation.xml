@@ -15,12 +15,43 @@
         <!-- Action to Group Details from Home -->
         <action
             android:id="@+id/action_home_to_group_details"
-            app:destination="@id/navigation_groupDetailsFragment" />
+            app:destination="@id/navigation_groupDetailsFragment"
+            app:popUpToInclusive="false" />
 
         <!-- Action to Movies and Books -->
         <action
             android:id="@+id/action_home_to_movies_and_books"
-            app:destination="@id/navigation_movies_and_books" />
+            app:destination="@id/navigation_movies_and_books"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="false" />
+
+        <!-- Action to Movie Detail from Search -->
+        <action
+            android:id="@+id/action_home_to_movie_detail_from_search"
+            app:destination="@id/navigation_movie_detail"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="false" />
+
+        <!-- Action to Book Detail from Search -->
+        <action
+            android:id="@+id/action_home_to_book_detail_from_search"
+            app:destination="@id/navigation_book_detail"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="false" />
+
+        <!-- Action to Group Detail from Search -->
+        <action
+            android:id="@+id/action_home_to_group_detail_from_search"
+            app:destination="@id/navigation_groupDetailsFragment"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="false" />
+
+        <!-- Action to Create Movie/Book -->
+        <action
+            android:id="@+id/action_home_to_create_movie_book"
+            app:destination="@id/navigation_create_movie_book"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="false" />
     </fragment>
 
     <!-- Movies and Books Fragment -->
@@ -28,10 +59,36 @@
         android:id="@+id/navigation_movies_and_books"
         android:name="com.example.pearls.ui.movies_and_books.MoviesAndBooksFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_movies_and_books" >
+        tools:layout="@layout/fragment_movies_and_books">
 
+        <!-- Action to Movie Details -->
+        <action
+            android:id="@+id/action_movies_and_books_to_movie_detail"
+            app:destination="@id/navigation_movie_detail"
+            app:popUpTo="@id/navigation_movies_and_books"
+            app:popUpToInclusive="false" />
 
+        <!-- Action to Profile -->
+        <action
+            android:id="@+id/action_movies_and_books_to_profile"
+            app:destination="@id/navigation_profile"
+            app:popUpTo="@id/navigation_movies_and_books"
+            app:popUpToInclusive="true" />
     </fragment>
+
+    <!-- Movie Detail Fragment -->
+    <fragment
+        android:id="@+id/navigation_movie_detail"
+        android:name="com.example.pearls.ui.movies_and_books.MovieOrBookDetailsFragment"
+        android:label="@string/movie_books"
+        tools:layout="@layout/fragment_movies_details" />
+
+    <!-- Book Detail Fragment -->
+    <fragment
+        android:id="@+id/navigation_book_detail"
+        android:name="com.example.pearls.ui.movies_and_books.MovieOrBookDetailsFragment"
+        android:label="@string/movie_books"
+        tools:layout="@layout/fragment_movies_details" />
 
     <!-- Groups Fragment -->
     <fragment
@@ -43,7 +100,16 @@
         <!-- Action to Group Detail from Groups -->
         <action
             android:id="@+id/action_groups_to_groupDetailsFragment"
-            app:destination="@id/navigation_groupDetailsFragment" />
+            app:destination="@id/navigation_groupDetailsFragment"
+            app:popUpTo="@id/navigation_groups"
+            app:popUpToInclusive="true" />
+
+        <!-- Action to Create Group -->
+        <action
+            android:id="@+id/action_groups_to_create_group"
+            app:destination="@id/navigation_create_group"
+            app:popUpTo="@id/navigation_groups"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <!-- Group Details Fragment -->
@@ -53,12 +119,26 @@
         android:label="Group Details"
         tools:layout="@layout/fragment_groups_details" />
 
+    <!-- Create Group Fragment -->
+    <fragment
+        android:id="@+id/navigation_create_group"
+        android:name="com.example.pearls.ui.groups.CreateGroupFragment"
+        android:label="Create Group"
+        tools:layout="@layout/fragment_create_group" />
+
+    <!-- Create Movie/Book Fragment (New) -->
+    <fragment
+        android:id="@+id/navigation_create_movie_book"
+        android:name="com.example.pearls.ui.create.CreateMovieBookFragment"
+        android:label="Create Movie/Book"
+        tools:layout="@layout/fragment_create_movie" />
+
     <!-- Profile Fragment -->
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.pearls.ui.profile.ProfileFragment"
         android:label="@string/profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_profile">
 
         <!-- Action to Watched List from Profile -->
         <action
@@ -70,15 +150,18 @@
             android:id="@+id/action_profile_to_wish_to_watch"
             app:destination="@id/navigation_wish_to_watch" />
 
+        <!-- Action to Movies and Books -->
         <action
             android:id="@+id/action_profile_to_movies_and_books"
-            app:destination="@id/navigation_movies_and_books" />
+            app:destination="@id/navigation_movies_and_books"
+            app:popUpTo="@id/navigation_profile"
+            app:popUpToInclusive="false" />
 
+        <!-- Action to Groups -->
         <action
             android:id="@+id/action_profile_to_groups"
-            app:destination="@id/navigation_groups" />
-
-
+            app:destination="@id/navigation_groups"
+            app:popUpToInclusive="false" />
     </fragment>
 
     <!-- Watched List Fragment -->
@@ -86,13 +169,29 @@
         android:id="@+id/navigation_watched_list"
         android:name="com.example.pearls.ui.watched_list.WatchedListFragment"
         android:label="Watched List"
-        tools:layout="@layout/fragment_watched_list" />
+        tools:layout="@layout/fragment_watched_list">
+
+        <!-- Action to navigate back to Profile -->
+        <action
+            android:id="@+id/action_watched_list_to_profile"
+            app:destination="@id/navigation_profile"
+            app:popUpTo="@id/navigation_watched_list"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <!-- Wish to Watch Fragment -->
     <fragment
         android:id="@+id/navigation_wish_to_watch"
         android:name="com.example.pearls.ui.wish_to_watch.WishToWatchFragment"
         android:label="Wish to Watch"
-        tools:layout="@layout/fragment_wish_to_watch" />
+        tools:layout="@layout/fragment_wish_to_watch">
+
+        <!-- Action to navigate back to Profile -->
+        <action
+            android:id="@+id/action_wish_to_watch_to_profile"
+            app:destination="@id/navigation_profile"
+            app:popUpTo="@id/navigation_wish_to_watch"
+            app:popUpToInclusive="true" />
+    </fragment>
 
 </navigation>

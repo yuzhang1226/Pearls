@@ -51,6 +51,7 @@
     <string name="groups_recommendations">Recommended Groups</string>
     <string name="my_groups_heading">My Groups</string>
     <string name="add_button_text">Add</string>
+    <string name="wish_button_text">to wish list</string>
     <string name="join_button_text">Join</string>
     <string name="check_button_text">check</string>
     <string name="group_one">group1</string>
@@ -62,9 +63,9 @@
 
 
     <!-- Movie Titles -->
-    <string name="movie_one_title">movie1</string>
-    <string name="movie_two_title">movie2</string>
-    <string name="movie_three_title">movie3</string>
+    <string name="movie_one_title">Matrix</string>
+    <string name="movie_two_title">interstellar</string>
+    <string name="movie_three_title">godfather</string>
     <string name="movie_four_title">movie4</string>
     <string name="movie_five_title">movie5</string>
     <string name="movie_six_title">movie6</string>
@@ -88,6 +89,12 @@
 
 
     <string name="movie_desc">movie</string>
+    <string name="movie_title">movie_title</string>
+    <string name="add_to_wishlist">add to wishlist</string>
+    <string name="movie_image_desc">Image of the movie</string>
+    <string name="back_button">Back</string>
+
+
     <!-- Book Description -->
     <string name="book_description">Explore our collection of books</string>
     <string name="book_cover_desc">Cover of Book</string>

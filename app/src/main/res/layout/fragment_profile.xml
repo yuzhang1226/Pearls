@@ -151,13 +151,13 @@
                                 android:layout_width="80dp"
                                 android:layout_height="120dp"
                                 android:layout_marginEnd="8dp"
-                                android:src="@drawable/movie" />
+                                android:src="@drawable/matrix" />
                             <ImageView
                                 android:id="@+id/movie2_image"
                                 android:layout_width="80dp"
                                 android:layout_height="120dp"
                                 android:layout_marginEnd="8dp"
-                                android:src="@drawable/movie" />
+                                android:src="@drawable/godfather" />
                         </LinearLayout>
                     </LinearLayout>
                 </FrameLayout>
@@ -186,7 +186,7 @@
                             android:id="@+id/wish_to_watch_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Wish to Watch"
+                            android:text="Wish List"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -201,13 +201,13 @@
                                 android:layout_width="80dp"
                                 android:layout_height="120dp"
                                 android:layout_marginEnd="8dp"
-                                android:src="@drawable/movie" />
+                                android:src="@drawable/interstellar" />
                             <ImageView
                                 android:id="@+id/movie4_image"
                                 android:layout_width="80dp"
                                 android:layout_height="120dp"
                                 android:layout_marginEnd="8dp"
-                                android:src="@drawable/movie" />
+                                android:src="@drawable/inception" />
                         </LinearLayout>
                     </LinearLayout>
                 </FrameLayout>

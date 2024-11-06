@@ -1,6 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.movies_and_books.MovieOrBookDetailsFragment">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Movie Image -->
+    <ImageView
+        android:id="@+id/imageViewMovie"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:contentDescription="@string/movie_image_desc"
+        android:scaleType="centerCrop"
+        android:src="@drawable/matrix" />
+
+    <!-- Movie Title -->
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageViewMovie"
+        android:layout_marginTop="16dp"
+        android:text="matrix"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Movie Description -->
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTitle"
+        android:layout_marginTop="8dp"
+        android:text="@string/movie_description"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <!-- Star Rating (placed below description) -->
+    <RatingBar
+        android:id="@+id/movie_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewDescription"
+        android:layout_marginTop="16dp"
+        android:numStars="5"
+        android:rating="0"
+        android:stepSize="1.0" />
+
+    <!-- Review Area (placed below rating) -->
+    <EditText
+        android:id="@+id/movie_review"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/movie_rating"
+        android:layout_marginTop="8dp"
+        android:hint="Write your review..."
+        android:inputType="textMultiLine"
+        android:minHeight="60dp"
+        android:background="@android:color/darker_gray"
+        android:padding="8dp" />
+
+    <Button
+        android:id="@+id/buttonSaveReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/movie_review"
+        android:layout_marginTop="16dp"
+        android:text="Save Review"
+        android:background="@color/colorAccent"
+        android:textColor="@android:color/white" />
+    <!-- Add to Wish List Button (placed below review) -->
+
+    <!-- Back Button (placed below add-to-wishlist button) -->
+    <Button
+        android:id="@+id/buttonAddToWishList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/movie_review"
+        android:layout_marginTop="369dp"
+        android:background="@color/colorAccent"
+        android:text="@string/add_to_wishlist"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonAddToWishList"
+        android:layout_marginTop="8dp"
+        android:text="@string/back_button"
+        android:textColor="@color/colorPrimary" />
+
+</RelativeLayout>

@@ -114,7 +114,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 NavController navController = Navigation.findNavController(binding.getRoot());
-                navController.navigate(R.id.action_profile_to_movies_and_books);
+                navController.navigate(R.id.action_profile_to_watched_list);
             }
         });
 
@@ -122,7 +122,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 NavController navController = Navigation.findNavController(binding.getRoot());
-                navController.navigate(R.id.action_profile_to_movies_and_books);
+                navController.navigate(R.id.action_profile_to_watched_list);
             }
         });
         // listeners for wish to watch images
@@ -130,7 +130,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 NavController navController = Navigation.findNavController(binding.getRoot());
-                navController.navigate(R.id.action_profile_to_movies_and_books);
+                navController.navigate(R.id.action_profile_to_wish_to_watch);
             }
         });
 
@@ -138,7 +138,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 NavController navController = Navigation.findNavController(binding.getRoot());
-                navController.navigate(R.id.action_profile_to_movies_and_books);
+                navController.navigate(R.id.action_profile_to_wish_to_watch);
             }
         });
         // Click listener for "My Groups" title

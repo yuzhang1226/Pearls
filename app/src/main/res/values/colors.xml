@@ -11,4 +11,8 @@
     <color name="light_grey">#D3D3D3</color>
     <color name="dark_grey">#A9A9A9</color>
     <color name="group_item_background_color">#F0F0F0</color>
+
+    <!-- Added colors -->
+    <color name="colorAccent">#FF4081</color> <!-- Change to your desired accent color -->
+    <color name="colorPrimary">#3F51B5</color> <!-- Change to your desired primary color -->
 </resources>

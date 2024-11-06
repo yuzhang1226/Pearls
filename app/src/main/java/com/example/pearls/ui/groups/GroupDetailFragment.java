@@ -6,8 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.example.pearls.databinding.FragmentGroupsDetailsBinding;
+import com.example.pearls.models.Post;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GroupDetailFragment extends Fragment {
 
@@ -35,7 +42,7 @@ public class GroupDetailFragment extends Fragment {
     private void loadGroupDetails() {
         db.collection("groups").document(groupId).get().addOnCompleteListener(task -> {
             if (task.isSuccessful() && task.getResult() != null) {
-                binding.groupName.setText(task.getResult().getString("groupName"));
+                binding.groupName.setText(task.getResult().getString("group_name"));
                 binding.groupIntroduction.setText(task.getResult().getString("introduction"));
                 binding.memberCount.setText(String.valueOf(task.getResult().getLong("memberCount")));
             }
@@ -50,7 +57,16 @@ public class GroupDetailFragment extends Fragment {
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful() && !task.getResult().isEmpty()) {
-                        // Handle post display logic here using RecyclerView
+                        List<Post> posts = new ArrayList<>();
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            // Assuming you have a Post constructor that takes a DocumentSnapshot
+                            posts.add(new Post(document));
+                        }
+
+                        // Set up the RecyclerView
+                        binding.postsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                        PostAdapter adapter = new PostAdapter(posts);
+                        binding.postsRecyclerView.setAdapter(adapter);
                     }
                 });
     }

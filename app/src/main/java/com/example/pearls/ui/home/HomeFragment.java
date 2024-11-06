@@ -5,16 +5,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-import com.example.pearls.R;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
-
+import com.example.pearls.R;
 import com.example.pearls.databinding.FragmentHomeBinding;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 
 public class HomeFragment extends Fragment {
 
@@ -36,7 +36,7 @@ public class HomeFragment extends Fragment {
         binding.btnSubmit.setOnClickListener(v -> {
             String queryText = binding.etInput.getText().toString().trim();
             if (!queryText.isEmpty()) {
-                searchContent(queryText);
+                searchContent(queryText, v);
             } else {
                 Toast.makeText(getContext(), "Please enter a search term", Toast.LENGTH_SHORT).show();
             }
@@ -82,15 +82,13 @@ public class HomeFragment extends Fragment {
         binding.movieImage1.setOnClickListener(v -> {
             Navigation.findNavController(v).navigate(R.id.navigation_movies_and_books);
         });
-        // Click listener for movie images
         binding.movieImage2.setOnClickListener(v -> {
             Navigation.findNavController(v).navigate(R.id.navigation_movies_and_books);
         });
-        // Click listener for movie images
         binding.movieImage3.setOnClickListener(v -> {
             Navigation.findNavController(v).navigate(R.id.navigation_movies_and_books);
         });
-        // Click listener for movie images
+
         binding.bookImage1.setOnClickListener(v -> {
             Navigation.findNavController(v).navigate(R.id.navigation_movies_and_books);
         });
@@ -100,28 +98,49 @@ public class HomeFragment extends Fragment {
         binding.bookImage3.setOnClickListener(v -> {
             Navigation.findNavController(v).navigate(R.id.navigation_movies_and_books);
         });
+
         binding.bookRecommendationsSection.setOnClickListener(v -> {
             Navigation.findNavController(v).navigate(R.id.navigation_movies_and_books);
         });
     }
 
     // Search Firestore for content in books, groups, movies, collections
-    private void searchContent(String queryText) {
+    private void searchContent(String queryText, View view) {
         db.collection("collections")
-                .whereEqualTo("name", queryText)
+                .whereEqualTo("itemName", queryText)
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful() && !task.getResult().isEmpty()) {
-                        // Content exists, display results
+                        // If content exists, navigate to item detail page
                         for (DocumentSnapshot document : task.getResult()) {
-                            Toast.makeText(getContext(), "Found: " + document.getString("name"), Toast.LENGTH_SHORT).show();
+                            String itemId = document.getId(); // Assuming ID is needed to load item details
+                            String itemName = document.getString("itemName");
+
+                            // Create a bundle to pass item ID to the detail page
+                            Bundle bundle = new Bundle();
+                            bundle.putString("itemId", itemId);
+                            bundle.putString("itemName", itemName);
+
+                            // Navigate to the detail page with the bundle
+                            Navigation.findNavController(view).navigate(R.id.action_home_to_movie_detail_from_search, bundle);
                         }
                     } else {
                         // Content doesn't exist, ask to add
-                        Toast.makeText(getContext(), "Sorry, it doesn't exist. You can add it.", Toast.LENGTH_SHORT).show();
-                        addContent(queryText);
+                        showAddContentDialog(queryText, view);
                     }
                 });
+    }
+
+    // Show dialog asking user if they want to add the content
+    private void showAddContentDialog(String queryText, View view) {
+        new AlertDialog.Builder(getContext())
+                .setMessage("We don't have it right now, do you want to add it?")
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    // Navigate to Create Movie/Book page
+                    Navigation.findNavController(view).navigate(R.id.navigation_create_movie_book);
+                })
+                .setNegativeButton("No", null)
+                .show();
     }
 
     // Add content to Firestore
@@ -196,6 +215,7 @@ public class HomeFragment extends Fragment {
                     }
                 });
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
